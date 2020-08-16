@@ -114,11 +114,11 @@ Layout에서 노드의 화면 구상이 다 이뤄지면, Paint 이벤트를 통
 
 ### 렌더링 엔진의 메인 Flow
 
-- Webkit 엔진
+- Webkit 엔진<br/>
   ![image alt](https://user-images.githubusercontent.com/35126809/90095491-c421a580-dd6b-11ea-9fd7-3c83e36e3913.png)  
   <br/><br/>
 
-- Gecko 엔진
+- Gecko 엔진<br/>
   ![image alt](https://user-images.githubusercontent.com/35126809/90095497-cc79e080-dd6b-11ea-971c-a891d0c9e55b.png)
 
 <br/><br/><br/>
