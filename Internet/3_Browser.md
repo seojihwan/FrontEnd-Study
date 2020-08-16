@@ -28,6 +28,7 @@
 렌더링 엔진은 통신으로부터 요청한 문서의 내용을 얻는 것으로 시작하는데 문서의 내용은 보통 8KB 단위로 전송된다.
 
 다음은 렌더링 엔진의 기본적인 동작 과정이다.
+<br/>
 ![image alt](https://d2.naver.com/content/images/2015/06/helloworld-59361-2.png)
 
 **1. DOM 트리 구축 위한 HTML 파싱 + CSSOM (CSS Object Model) 구축 위한 스타일 파싱**
@@ -36,51 +37,50 @@
 
 - DOM Tree 생성 과정
 
-      - 1. 변환 : 브라우저가 원시바이트(Bytes)를 디스크나 네트워크에서 읽어와 해당 파일에 지정된 인코딩(ex. UTF-8)에 따라 개별 문자로 변환한다.
+  - 1. 변환 : 브라우저가 원시바이트(Bytes)를 디스크나 네트워크에서 읽어와 해당 파일에 지정된 인코딩(ex. UTF-8)에 따라 개별 문자로 변환한다.
+  - 2. 토큰화 : 브라우저가 문자열을 W3C 표준에 지정된 고유 토큰(<html>, <body> 같은 형태의 문자)으로 변환한다. 토큰은 특별한 의미와 고유의 규칙을 갖는다.
+  - 3. 렉싱(Tokens > Nodes) : 방출된 토큰은 속성 및 규칙을 정의하는 객체로 변환한다.
+  - 4. DOM 생성 : HTML 마크업이 여러 태그간의 관계를 정의하면서 트리 구조를 형성한다.
 
-      - 2. 토큰화 : 브라우저가 문자열을 W3C 표준에 지정된 고유 토큰(<html>, <body> 같은 형태의 문자)으로 변환한다. 토큰은 특별한 의미와 고유의 규칙을 갖는다.
+    ![image alt](https://user-images.githubusercontent.com/35126809/90095244-072f4900-dd6b-11ea-9a7d-d2eb219c3399.png)
 
-      - 3. 렉싱(Tokens > Nodes) : 방출된 토큰은 속성 및 규칙을 정의하는 객체로 변환한다.
+    **DOM?**
+    문서 객체 모델(The Document Object Model, 이하 DOM) 은 HTML, XML 문서의 프로그래밍 interface 이다.
 
-      - 4. DOM 생성 : HTML 마크업이 여러 태그간의 관계를 정의하면서 트리 구조를 형성한다.
+    DOM은 문서의 구조화된 표현(structured representation)을 제공하며 프로그래밍 언어가 DOM 구조에 접근할 수 있는 방법을 제공하여 그들이 문서 구조, 스타일, 내용 등을 변경할 수 있게 돕는다.
 
-      ![image alt](https://user-images.githubusercontent.com/35126809/90095244-072f4900-dd6b-11ea-9a7d-d2eb219c3399.png)
+    DOM 이 없다면 자바스크립트 언어는 웹 페이지 또는 XML 페이지 및 요소들과 관련된 모델이나 개념들에 대한 정보를 갖지 못하게 된다.
 
-      **DOM?**
-      문서 객체 모델(The Document Object Model, 이하 DOM) 은 HTML, XML 문서의 프로그래밍 interface 이다.
+    DOM은 프로그래밍 언어가 자신에 접근하고 수정할 수 있는 방법을 제공하는데 일반적으로 프로퍼티와 메소드를 갖는 자바스크립트 객체로 제공된다. 이를 DOM API(Application Programming Interface)라고 부른다. 달리 말하면 정적인 웹페이지에 접근하여 동적으로 웹페이지를 변경하기 위한 유일한 방법은 메모리 상에 존재하는 DOM을 변경하는 것이고, 이때 필요한 것이 DOM에 접근하고 변경하는 프로퍼티와 메소드의 집합인 DOM API이다.
 
-      DOM은 문서의 구조화된 표현(structured representation)을 제공하며 프로그래밍 언어가 DOM 구조에 접근할 수 있는 방법을 제공하여 그들이 문서 구조, 스타일, 내용 등을 변경할 수 있게 돕는다.
+    **DOM tree?**
 
-      DOM 이 없다면 자바스크립트 언어는 웹 페이지 또는 XML 페이지 및 요소들과 관련된 모델이나 개념들에 대한 정보를 갖지 못하게 된다.
-
-      DOM은 프로그래밍 언어가 자신에 접근하고 수정할 수 있는 방법을 제공하는데 일반적으로 프로퍼티와 메소드를 갖는 자바스크립트 객체로 제공된다. 이를 DOM API(Application Programming Interface)라고 부른다. 달리 말하면 정적인 웹페이지에 접근하여 동적으로 웹페이지를 변경하기 위한 유일한 방법은 메모리 상에 존재하는 DOM을 변경하는 것이고, 이때 필요한 것이 DOM에 접근하고 변경하는 프로퍼티와 메소드의 집합인 DOM API이다.
-
-      **DOM tree?**
-
-      DOM tree는 브라우저가 HTML 문서를 로드한 후 파싱하여 생성하는 모델을 의미한다. 객체의 트리로 구조화되어 있기 때문에 DOM tree라 부른다.
-      DOM은 마크업과 1:1의 관계를 맺는다.
-      ![](https://i.imgur.com/gA01Wci.png)
-
-      ![image alt](https://poiemaweb.com/img/dom-tree.png)
+    DOM tree는 브라우저가 HTML 문서를 로드한 후 파싱하여 생성하는 모델을 의미한다. 객체의 트리로 구조화되어 있기 때문에 DOM tree라 부른다.
+    DOM은 마크업과 1:1의 관계를 맺는다.
+    <br/>
+    ![](https://i.imgur.com/gA01Wci.png)
+    <br/>
+    ![image alt](https://poiemaweb.com/img/dom-tree.png)
 
 
       DOM tree 는 네 종류의 노드로 구성된다.
 
       - ***`문서 노드(Document Node)`***
-      </br>
+        <br/>
       `트리의 최상위에 존재하며 각각 요소, 어트리뷰트, 텍스트 노드에 접근하려면 문서 노드를 통해야 한다. 즉, DOM tree에 접근하기 위한 시작점(entry point)이다.`
     - ***`요소 노드(Element Node)`***
-    </br>
+    <br/>
     `요소 노드는 HTML 요소를 표현한다. HTML 요소는 중첩에 의해 부자 관계를 가지며 이 부자 관계를 통해 정보를 구조화한다. 따라서 요소 노드는 문서의 구조를 서술한다고 말 할 수 있다. 어트리뷰트, 텍스트 노드에 접근하려면 먼저 요소 노드를 찾아 접근해야 한다. 모든 요소 노드는 요소별 특성을 표현하기 위해 HTMLElement 객체를 상속한 객체로 구성된다. (그림: DOM tree의 객체 구성 참고)`
     - ***`어트리뷰트 노드(Attribute Node)`***
-    </br>
+
+   <br/>
     `어트리뷰트 노드는 HTML 요소의 어트리뷰트를 표현한다. 어트리뷰트 노드는 해당 어트리뷰트가 지정된 요소의 자식이 아니라 해당 요소의 일부로 표현된다. 따라서 해당 요소 노드를 찾아 접근하면 어트리뷰트를 참조, 수정할 수 있다.`
     - ***`텍스트 노드(Text Node)`***
-    </br>
+    <br/>
     `텍스트 노드는 HTML 요소의 텍스트를 표현한다. 텍스트 노드는 요소 노드의 자식이며 자신의 자식 노드를 가질 수 없다. 즉, 텍스트 노드는 DOM tree의 최종단이다.`
-        </br></br>
+        <br/><br/>
         DOM에서 모든 요소, 어트리뷰트, 텍스트는 하나의 객체이며 Document 객체의 자식이다. 요소의 중첩관계는 객체의 트리로 구조화하여 부자관계를 표현한다. DOM tree의 진입점(Entry point)는 document 객체이며 최종점은 요소의 텍스트를 나타내는 객체이다.
-        </br></br>
+        <br/>v
         **CSSOM (CSS Object Model)?**
         - 브라우저가 HTML을 파싱하는 과정에서 대부분은 head 태그의 하위로 link 태그가 존재해 CSS 파일을 불러오게 된다. CSS 파일을 불러온 뒤, HTML과 마찬가지로 브라우저가 이해하고 처리할 수 있는 형식으로 변환해야 한다. 그 과정은 DOM을 생성하는 과정과 동일하다. 단 출력된 결과는 CSSOM(CSS Object Model) 이라고 부르며, DOM 트리와 마찬가지로 트리 구조로 되어있어 CSSOM 트리 라고도 부른다.
 
@@ -89,8 +89,8 @@
 **2. 렌더 트리 구축**
 
 - 앞서 만든 DOM 트리와, CSSOM 트리는 서로 연관이 없는 독립적인 객체이다. DOM 트리는 콘텐츠를 의미하고, CSSOM은 문서에 적용되어야 하는 스타일 규칙을 의미한다. 따라서 두 번째 단계에선 이 두 개의 트리를 결합하여 렌더 트리를 생성한다.
-
-![image alt](https://memory.today/dev/36/render-tree.png)
+  <br/>
+  ![image alt](https://memory.today/dev/36/render-tree.png)
 
 - 렌더 트리는 DOM 트리의 최상위 노드부터 각각의 노드를 탐색하여 렌더링에 필요한 노드들을 CSSOM 트리와 일치시켜 생성한다. 그리고 DOM 트리를 탐색하는 과정에서 렌더링 출력에 반영되지 않는 불필요한 노드들은 건너뛰게 된다. 예를들면 `<script>` 태그나, `<meta>` 태그 같은 것들이 있다.
   또한 display:none 처럼 CSS를 통해 렌더링 출력에 반영되지 않는 노드들도 실제 화면에서 렌더링이 되지 않기 때문에 렌더 트리에서 제외된다.
@@ -98,7 +98,7 @@
 
 - DOM 요소에 부합하나 1:1로 대응하지는 않는다 (ex. head와 같은 비시각적 요소, select요소 따위의 복잡성, position-float같은 다른 위치의 요소들)
 
-</br></br>
+<br/><br/>
 **3. 렌더 트리 배치 (Layout & Reflow)**
 
 렌더 트리는 DOM 트리와 CSSOM 트리에 의해 정의된 스타일만 계산하였다. 하지만 기기의 뷰포트(Viewport) 내에서의 정확한 위치 및 크기는 계산되지 않았다.
@@ -111,7 +111,7 @@
 
 박스 모델의 넓이는 뷰포트 (ICB) 기준으로 측정되고, 높이는 Contents (fonts) 기준으로 측정된다. 따라서 윈도우 사이즈를 변경하거나, 폰트를 변경하면 리플로우가 다시 발생되게 되는 것이다.
 
-</br></br>
+<br/><br/>
 **4. 렌더 트리 그리기 (Painting & Rasterizing)**
 
 Layout에서 노드의 화면 구상이 다 이뤄지면, Paint 이벤트를 통해 노드들은 화면에 픽셀로 변환한다. 텍스트, 색, 이미지 등 모든 시각적인 요소들이 입혀진다. 이를 Painting 또는 Rasterizing 이라고 하며, Layer가 여러개인 경우 이를 합성해 하나의 bitmap을 만드는 작업은 compositing이라고 한다
@@ -125,7 +125,7 @@ Layout에서 노드의 화면 구상이 다 이뤄지면, Paint 이벤트를 통
 - Gecko 엔진
   ![image alt](https://user-images.githubusercontent.com/35126809/90095497-cc79e080-dd6b-11ea-971c-a891d0c9e55b.png)
 
-</br></br></br>
+<br/><br/><br/>
 
 ### 참고 사이트
 
