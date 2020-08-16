@@ -75,7 +75,7 @@
     `텍스트 노드는 HTML 요소의 텍스트를 표현한다. 텍스트 노드는 요소 노드의 자식이며 자신의 자식 노드를 가질 수 없다. 즉, 텍스트 노드는 DOM tree의 최종단이다.`
         <br/><br/>
         DOM에서 모든 요소, 어트리뷰트, 텍스트는 하나의 객체이며 Document 객체의 자식이다. 요소의 중첩관계는 객체의 트리로 구조화하여 부자관계를 표현한다. DOM tree의 진입점(Entry point)는 document 객체이며 최종점은 요소의 텍스트를 나타내는 객체이다.
-        <br/>
+        <br/><br/><br/>
         **CSSOM (CSS Object Model)?**
         - 브라우저가 HTML을 파싱하는 과정에서 대부분은 head 태그의 하위로 link 태그가 존재해 CSS 파일을 불러오게 된다. CSS 파일을 불러온 뒤, HTML과 마찬가지로 브라우저가 이해하고 처리할 수 있는 형식으로 변환해야 한다. 그 과정은 DOM을 생성하는 과정과 동일하다. 단 출력된 결과는 CSSOM(CSS Object Model) 이라고 부르며, DOM 트리와 마찬가지로 트리 구조로 되어있어 CSSOM 트리 라고도 부른다.
 
@@ -110,6 +110,7 @@
 **4. 렌더 트리 그리기 (Painting & Rasterizing)**
 
 Layout에서 노드의 화면 구상이 다 이뤄지면, Paint 이벤트를 통해 노드들은 화면에 픽셀로 변환한다. 텍스트, 색, 이미지 등 모든 시각적인 요소들이 입혀진다. 이를 Painting 또는 Rasterizing 이라고 하며, Layer가 여러개인 경우 이를 합성해 하나의 bitmap을 만드는 작업은 compositing이라고 한다
+<br/><br/><br/>
 
 ### 렌더링 엔진의 메인 Flow
 
