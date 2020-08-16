@@ -17,7 +17,7 @@
 
 ![image alt](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbux4a9%2FbtqtZO4Zp3P%2FbKSqTgKzNG5JCZ2vGGKPUK%2Fimg.png)
 
-## 레더링 엔진
+## 렌더링 엔진
 
 렌더링 엔진의 역할은 **요청 받은 내용을 브라우저 화면에 표시하는 일이다.**
 
