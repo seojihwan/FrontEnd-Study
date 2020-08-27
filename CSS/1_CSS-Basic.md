@@ -11,6 +11,7 @@
 * 수도 클래스 선택자 : a:hover와 같은 방법을 통해 특정 상태의 요소를 선택
 #### Property(속성)
 color, font-size 등 요소의 디자인할 수 있는 속성을 나타낸다. CSS의 속성을 통해 텍스트 혹은 박스를 꾸밀 수 있다. 여기서 박스란, Box Model로 content, padding, border, margin을 포함한다. 
+
 ![](https://i.imgur.com/Bo5U7cA.png)
 
 * Content : 내용을 나타낸다. 
