@@ -12,6 +12,7 @@
 #### Property(속성)
 color, font-size 등 요소의 디자인할 수 있는 속성을 나타낸다. CSS의 속성을 통해 텍스트 혹은 박스를 꾸밀 수 있다. 여기서 박스란, Box Model로 content, padding, border, margin을 포함한다. 
 ![](https://i.imgur.com/Bo5U7cA.png)
+
 * Content : 내용을 나타낸다. 
 * Padding : 내용에서 Border까지의 간격을 나타낸다.
 * Border : Content와 Padding의 테두리를 나타낸다.
