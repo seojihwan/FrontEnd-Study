@@ -105,9 +105,9 @@ CLI 명령어로 사용할 수 있다.
 
 `webpack --mode=development`
 
-![mode_option](./img/mode_option.png)
-
 ```
+![image](./img/mode_option.png)
+
 - Brower Compatibility
 webpack은 ES5를 준수 하는 모든 브라우저를 지원한다.
 
